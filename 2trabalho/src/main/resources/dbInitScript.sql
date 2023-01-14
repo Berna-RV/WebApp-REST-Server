@@ -4,12 +4,12 @@ CREATE TABLE user_table (
   user_name varchar(30) NOT NULL PRIMARY KEY,
   user_pass varchar(255) NOT NULL,
   user_email varchar(50) NOT NULL,
-  user_role varchar(15) DEFAULT 'ROLE_2'
+  user_role varchar(15) DEFAULT 'ROLE_USER'
 );
 
 insert  into user_table values (DEFAULT,'admin','$2a$10$dl8TemMlPH7Z/mpBurCX8O4lu0FoWbXnhsHTYXVsmgXyzagn..8rK', "admin@exemplo.com", 'ROLE_ADMIN');
 -- user2 / teste123
-insert  into user_table values (DEFAULT,'user2','$2a$10$bKWhb9hIUD3xxxtzfhvodugWIK3Gbw4vRySYOnBqy2O4gtqZ78jUK',"user2@exemplo.com",'ROLE_2');
+insert  into user_table values (DEFAULT,'user2','$2a$10$bKWhb9hIUD3xxxtzfhvodugWIK3Gbw4vRySYOnBqy2O4gtqZ78jUK',"user2@exemplo.com",'ROLE_USER');
 
 
 CREATE TABLE anuncio_table (
