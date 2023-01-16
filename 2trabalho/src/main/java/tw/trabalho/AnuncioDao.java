@@ -1,5 +1,6 @@
 package tw.trabalho;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -30,5 +31,9 @@ public class AnuncioDao {
                 + ad.getAnuncio_user_name() + "')";
         jdbcTemplate.execute(sql);
         System.out.println("AnuncioDao - saved\n" + sql + "\n");
+    }
+    
+    public List<Anuncio> getAnunciosListByTipoAnuncio(String tipo) {
+        return jdbcTemplate.query("select * FROM anuncio_table where tipoAnuncio='" + tipo + "'", new AnuncioRowMapper());
     }
 }

@@ -19,8 +19,20 @@ public class Anuncio {
     private String estado;
     private String anuncio_user_name;
 
-    public Anuncio(String tipoAnuncio) {
+    public Anuncio(Long anuncio_id, String tipoAnuncio, String tipologia, String detalhes, String localizacao, String genero, String preco, String anunciante, String contacto, String data, String estado, String anuncio_user_name) {
+        this.anuncio_id=anuncio_id;
         this.tipoAnuncio = tipoAnuncio;
+        this.tipologia=tipologia;
+        this.detalhes=detalhes;
+        this.localizacao=localizacao;
+        this.genero=genero;
+        this.preco=preco;
+        this.anunciante=anunciante;
+        this.contacto=contacto;
+        this.data=data;
+        this.estado=estado;
+        this.anuncio_user_name=anuncio_user_name;
+        
     }
 
     public void setAid(Long anuncio_id) {
@@ -110,19 +122,18 @@ public class Anuncio {
     public String getEstado() {
         return estado;
     }
-    
-    public void setAnuncio_user_name(String anuncio_user_name){
-        this.anuncio_user_name= anuncio_user_name;
+
+    public void setAnuncio_user_name(String anuncio_user_name) {
+        this.anuncio_user_name = anuncio_user_name;
     }
-    
-    public String getAnuncio_user_name(){
+
+    public String getAnuncio_user_name() {
         return anuncio_user_name;
     }
 
     @Override
     public String toString() {
-        return "Anuncio{"
-                + ", Anuncio ID= " + anuncio_id
+        return "Anuncio{ Anuncio ID= " + anuncio_id
                 + ", tipo de anuncio= " + tipoAnuncio
                 + ", tipologia= " + tipologia
                 + ", detalhes= " + detalhes
@@ -132,8 +143,8 @@ public class Anuncio {
                 + ", anunciante= " + anunciante
                 + ", contacto= " + contacto
                 + ", data= " + data
-                + ", estado= " + estado 
-                + ", Anuncio- Username " + anuncio_user_name
-                +'}';
+                + ", estado= " + estado
+                + ", Anuncio-Username " + anuncio_user_name
+                + '}';
     }
 }

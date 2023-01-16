@@ -23,13 +23,13 @@
 
             <div id="nav">
                 <ul>
-                    <li><a href="<c:url value='roomRentEvora'/>"> Room Rent Évora </a></li>
-                    <li><a href="<c:url value='oferta'/>"> Registar Oferta </a></li>
-                    <li><a href="<c:url value='procura'/>"> Registar Procura </a></li>
-                    <li><a href="<c:url value='contactos'/>"> Contactos </a></li>
-                    <li><a href="<c:url value='administracao'/>"> Administração </a></li>
-                    <li><a href="<c:url value='mensagens'/>"> Mensagens </a></li>
-                    <li><a href="<c:url value='login'/>"> Sign in </a></li>
+                    <li><a href="<c:url value='/roomRentEvora/home'/>"> Room Rent Évora </a></li>
+                    <li><a href="<c:url value='/user/roomRentEvora/registar0ferta'/>"> Registar Oferta </a></li>
+                    <li><a href="<c:url value='/user/roomRentEvora/registarProcura'/>"> Registar Procura </a></li>
+                    <li><a href="<c:url value='/roomRentEvora/contactos'/>"> Contactos </a></li>
+                    <li><a href="<c:url value='/admin/roomRentEvora/administracao'/>"> Administração </a></li>
+                    <li><a href="<c:url value='/user/roomRentEvora/mensagens'/>"> Mensagens </a></li>
+                    <li><a href="<c:url value='/login'/>"> Sign in </a></li>
                 </ul>
             </div>
         </div>

@@ -21,13 +21,13 @@
 
             <div id="nav">
                 <ul>
-                    <li><a href="<c:url value='roomRentEvora'/>"> Room Rent Évora </a></li>
-                    <li><a href="<c:url value='oferta'/>"> Registar Oferta </a></li>
-                    <li><a href="<c:url value='procura'/>"> Registar Procura </a></li>
-                    <li><a href="<c:url value='contactos'/>"> Contactos </a></li>
-                    <li><a href="<c:url value='administracao'/>"> Administração </a></li>
-                    <li><a href="<c:url value='mensagens'/>"> Mensagens </a></li>
-                    <li><a href="<c:url value='login'/>"> Sign in </a></li>
+                    <li><a href="<c:url value='/roomRentEvora/home'/>"> Room Rent Évora </a></li>
+                    <li><a href="<c:url value='/user/roomRentEvora/registar0ferta'/>"> Registar Oferta </a></li>
+                    <li><a href="<c:url value='/user/roomRentEvora/registarProcura'/>"> Registar Procura </a></li>
+                    <li><a href="<c:url value='/roomRentEvora/contactos'/>"> Contactos </a></li>
+                    <li><a href="<c:url value='/admin/roomRentEvora/administracao'/>"> Administração </a></li>
+                    <li><a href="<c:url value='/user/roomRentEvora/mensagens'/>"> Mensagens </a></li>
+                    <li><a href="<c:url value='/login'/>"> Sign in </a></li>
                 </ul>
 
                 <form id="search" method="POST">
@@ -101,7 +101,7 @@
                 </div>
 
                 <div>
-                    <form action="ofertasList.jsp">
+                    <form action="<c:url value="/roomRentEvora/listaDeOfertas"/>">
                         <p>
                             <button id="verTudoOfertas">Ver Tudo</button>
                         </p>
@@ -170,7 +170,7 @@
                 </div>
 
                 <div>
-                    <form action="procurasList.jsp">
+                    <form action="<c:url value="/roomRentEvora/listaDeProcuras"/>">
                         <p>
                             <button id="verTudoProcuras">Ver Tudo</button>
                         </p>

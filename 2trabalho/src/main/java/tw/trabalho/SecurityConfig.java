@@ -29,38 +29,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http// ,
-                .authorizeRequests()// , authorize request
-                .antMatchers("/admin*").authenticated()
-                .antMatchers("/user*").authenticated()
-                .antMatchers("/*").permitAll()// ,
-                // ignore
-                // /,login
-                // page,static
-                // resources, error
-                // pages
-                .antMatchers("/admin*")// Ensures that request with "/admin" to
-                // our application requires the user to
-                // be authenticated
-                .access("hasRole('ADMIN')")// Any URL that starts with
-                // "/admin" will
-                // be restricted to users who have the
-                // role "ROLE_ADMIN",
-                .antMatchers("/user*").access("hasRole('USER')")
-                .and()// ,
-                .formLogin()// Allows users to authenticate with form based
-                // login,
-                .loginPage("/login")// specifies the location of the log in
-                // page,
-                .loginProcessingUrl("/j_spring_security_check")// login
-                // processing
-                // URL,
-                .defaultSuccessUrl("/user/roomRentEvora")// default-target-url,
+        http
+                .authorizeRequests()
+                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/user/**").hasAnyRole("USER", "ADMIN")
+                //.anyRequest().permitAll()
+                .antMatchers("/", "/login", "/static/**", "/roomRentEvora/**").permitAll().anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .loginProcessingUrl("/j_spring_security_check")// login submit target
+                .defaultSuccessUrl("/roomRentEvora/home")// default-target-url,
                 .failureUrl("/login?error")// authentication-failure-url,
                 .usernameParameter("username")// overrides Spring's default
-                // j_username with
-                // username-parameter,
-                .passwordParameter("password");// overrides Spring's default
+                .passwordParameter("password")
+                .permitAll()
+                .and()
+                .logout()
+                .permitAll();
+        http.cors().and().csrf().disable();
 
     }
 

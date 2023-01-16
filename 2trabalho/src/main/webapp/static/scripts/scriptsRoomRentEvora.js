@@ -188,7 +188,7 @@ function showPage(page_number) {
 
         $("#anuncios").append("<a onclick=\"showDetails(" + anuncio.aid + ")\"><div id=\"" + i + "\" ></div></a>");
 
-        $("#anuncios #" + i + "").append("<img src=\"images/logo.svg\" alt=\"some text\" width=220 height=120> <br>");
+        $("#anuncios #" + i + "").append("<img src=\"/static/images/logo.svg\" alt=\"some text\" width=220 height=120> <br>");
         $("#anuncios #" + i + "").append("Tipo de alojamento: " + anuncio.tipo_alojamento + "<br>");
         $("#anuncios #" + i + "").append("Detalhes: " + anuncio.detalhes + "<br>");
         $("#anuncios #" + i + "").append("Zona: " + anuncio.zona + "<br>");
@@ -225,7 +225,7 @@ function showDetails(adNumber) {
     $.ajax({
         url: "http://alunos.di.uevora.pt/tweb/t1/anuncio", method: "POST", data: { aid: adNumber }, success: function (data) {
 
-            $(".detalhes #atributos").append("<img src=\"images/logo.svg\" alt=\"some text\" width=220 height=120> <br>");
+            $(".detalhes #atributos").append("<img src=\"/static/images/logo.svg\" alt=\"some text\" width=220 height=120> <br>");
             $(".detalhes #atributos").append("Tipo de alojamento: " + data.anuncio.tipo_alojamento + "<br>");
             $(".detalhes #atributos").append("Detalhes: " + data.anuncio.detalhes + "<br>");
             $(".detalhes #atributos").append("Zona: " + data.anuncio.zona + "<br>");
