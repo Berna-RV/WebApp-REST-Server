@@ -1,5 +1,5 @@
 <%@ page language="java" session="true"
-	contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+	contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
@@ -36,5 +36,6 @@
 				value="${_csrf.token}" />
 		</form>
 	</div>
+                                <div><a href="<c:url value='/roomRentEvora/newuser'/>">Register</a></div>
 </body>
 </html>

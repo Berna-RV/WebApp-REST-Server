@@ -1,6 +1,6 @@
 function opcaoCasa() {
     value = document.getElementById("tipoAlojamento").value;
-    if (value == "2") {
+    if (value === "casa") {
 
         document.getElementById("opcaoDeCasa").style.display = "";
     } else {
@@ -19,7 +19,12 @@ $(document).ready(function () {
                 alert("O registo foi feito com sucesso.");
             } else {
                 alert("O registo não foi feito com sucesso.");
+                location.reload();
             }
+        });
+        
+        $.post("http://alunos.di.uevora.pt/tweb/t2/mbref4payment", formValues, function (data) {
+            alert(data);
         });
     });
 });

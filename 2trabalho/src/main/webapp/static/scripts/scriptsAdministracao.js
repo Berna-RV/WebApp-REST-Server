@@ -7,10 +7,10 @@ $(document).ready(function () {
         inativos = JSON.parse(data["inativo"]);
 
         $(".pagination").append(
-            '<a onclick="showAtivos()">Ativos</a><a onclick="showInativos()">Inativos</a>'
-        );
-        $("#tituloAdministracao").css({ "margin-left": "2%" });
-        $("#botoesPaginacao").css({ "margin-left": "2%" });
+                '<a onclick="showAtivos()">Ativos</a><a onclick="showInativos()">Inativos</a>'
+                );
+        $("#tituloAdministracao").css({"margin-left": "2%"});
+        $("#botoesPaginacao").css({"margin-left": "2%"});
 
     });
 });
@@ -20,18 +20,18 @@ function showPageAtivos(page_number) {
     $(".ads").append("<br>");
 
     for (
-        let i = 0, j = ativos.length - (page_number - 1) * 6 - 1;
-        j >= 0 && i < 6;
-        j--, i++
-    ) {
+            let i = 0, j = ativos.length - (page_number - 1) * 6 - 1;
+            j >= 0 && i < 6;
+            j--, i++
+            ) {
         $(".ads").append('<div id="' + i + '"></div>');
 
         let ad = ativos[j];
 
         $(".ads #" + i + "").append("<br>" + "Aid: " + ad.aid);
         $(".ads #" + i + "").append(
-            '<p> <\p> <a onclick="modifyAdStateFromAtivo(' + ad.aid + ')">- Alterar -</a>'
-        );
+                '<p> <\p> <a onclick="modifyAdStateFromAtivo(' + ad.aid + ')">- Alterar -</a>'
+                );
         $(".ads #" + i + "").append("<br><br>");
 
         if (window.matchMedia("(max-width: 980px").matches) {
@@ -60,9 +60,7 @@ function showPageAtivos(page_number) {
                 "border-radius": "5px",
             });
 
-        }
-
-        else {
+        } else {
             $(".ads #" + i + "").css({
                 color: "white",
                 "font-size": "18px",
@@ -99,7 +97,7 @@ function showAtivos() {
         $(".paginationNumbers").append("<a id=\" " + i + " \"  onclick=\"showPageAtivos(" + i + ")\">" + i + "</a>");
     }
 
-    $(".paginationNumbers").css({ "margin-left": "2%" });
+    $(".paginationNumbers").css({"margin-left": "2%"});
 
     showPageAtivos(1);
 }
@@ -111,18 +109,18 @@ function showPageInativos(page_number) {
     $(".ads").append("<br>");
 
     for (
-        let i = 0, j = inativos.length - (page_number - 1) * 6 - 1;
-        j >= 0 && i < 6;
-        j--, i++
-    ) {
+            let i = 0, j = inativos.length - (page_number - 1) * 6 - 1;
+            j >= 0 && i < 6;
+            j--, i++
+            ) {
         $(".ads").append('<div id="' + i + '"></div>');
 
         let ad = inativos[j];
 
         $(".ads #" + i + "").append("<br>" + "Aid: " + ad.aid);
         $(".ads #" + i + "").append(
-            '<p> <\p> <a onclick="modifyAdStateFromInativo(' + ad.aid + ')">- Alterar -</a>'
-        );
+                '<p> <\p> <a onclick="modifyAdStateFromInativo(' + ad.aid + ')">- Alterar -</a>'
+                );
         $(".ads #" + i + "").append("<br><br>");
 
         if (window.matchMedia("(max-width: 980px").matches) {
@@ -151,9 +149,7 @@ function showPageInativos(page_number) {
                 "border-radius": "5px",
             });
 
-        }
-
-        else {
+        } else {
             $(".ads #" + i + "").css({
                 color: "white",
                 "font-size": "18px",
@@ -193,13 +189,13 @@ function showInativos() {
         $(".paginationNumbers").append("<a id=\" " + i + " \"  onclick=\"showPageInativos(" + i + ")\">" + i + "</a>");
     }
 
-    $(".paginationNumbers").css({ "margin-left": "2%" });
+    $(".paginationNumbers").css({"margin-left": "2%"});
 
     showPageInativos(1);
 }
 
 function modifyAdStateFromAtivo(aid) {
-    var data = { aid: aid, estado: "inativo"};
+    var data = {aid: aid, estado: "inativo"};
 
     $.post({
         url: "http://localhost:8080/admin/roomRentEvora/controloAnuncio",
@@ -210,15 +206,15 @@ function modifyAdStateFromAtivo(aid) {
                 location.reload();
             } else {
                 alert(
-                    "Erro na execução da alteração (não inclua caracteres acentuados na descrição)"
-                );
+                        "Erro na execução da alteração (não inclua caracteres acentuados na descrição)"
+                        );
             }
         },
     });
 }
 
 function modifyAdStateFromInativo(aid) {
-    var data = { aid: aid, estado: "ativo"};
+    var data = {aid: aid, estado: "ativo"};
 
     $.post({
         url: "http://localhost:8080/admin/roomRentEvora/controloAnuncio",
@@ -229,8 +225,8 @@ function modifyAdStateFromInativo(aid) {
                 location.reload();
             } else {
                 alert(
-                    "Erro na execução da alteração (não inclua caracteres acentuados na descrição)"
-                );
+                        "Erro na execução da alteração (não inclua caracteres acentuados na descrição)"
+                        );
             }
         },
     });

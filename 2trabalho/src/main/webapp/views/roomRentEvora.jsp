@@ -1,5 +1,5 @@
 <%@ page language="java" session="true"
-         contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+         contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
     <head>
@@ -20,6 +20,7 @@
 
 
             <div id="nav">
+
                 <ul>
                     <li><a href="<c:url value='/roomRentEvora/home'/>"> Room Rent Évora </a></li>
                     <li><a href="<c:url value='/user/roomRentEvora/registar0ferta'/>"> Registar Oferta </a></li>
@@ -28,7 +29,9 @@
                     <li><a href="<c:url value='/admin/roomRentEvora/administracao'/>"> Administração </a></li>
                     <li><a href="<c:url value='/user/roomRentEvora/mensagens'/>"> Mensagens </a></li>
                     <li><a href="<c:url value='/login'/>"> Sign in </a></li>
+                    <li><a href="<c:url value='/logout'/>">Logout</a></li>
                 </ul>
+
 
                 <form id="search" method="POST">
                     <input id="search_bar" name="tipo" type="text" placeholder="O que procura?">

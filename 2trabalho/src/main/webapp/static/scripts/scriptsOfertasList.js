@@ -2,24 +2,24 @@ var ofertas = null;
 var ofertas_size = null;
 
 $(document).ready(
-    function () {
-        $.ajax({
-            url: "http://localhost:8080/roomRentEvora/lista", method: "POST", data: { tipo: 'oferta' }, success: function (data) {
-                
-                ofertas=JSON.parse(data);
-                ofertas_size = ofertas.length;
+        function () {
+            $.ajax({
+                url: "http://localhost:8080/roomRentEvora/lista", method: "POST", data: {tipo: 'oferta'}, success: function (data) {
 
-                var page_number = Math.ceil(ofertas_size / 4);
+                    ofertas = JSON.parse(data);
+                    ofertas_size = ofertas.length;
 
-                for (let i = 1; i <= page_number; i++) {
-                    $(".pagination").append("<a id=\" " + i + " \"  onclick=\"showPage(" + i + ")\">" + i + "</a>");
+                    var page_number = Math.ceil(ofertas_size / 4);
+
+                    for (let i = 1; i <= page_number; i++) {
+                        $(".pagination").append("<a id=\" " + i + " \"  onclick=\"showPage(" + i + ")\">" + i + "</a>");
+                    }
+
+
+                    showPage(1);
                 }
-
-
-                showPage(1);
-            }
-        });
-    }
+            });
+        }
 );
 
 
@@ -65,11 +65,11 @@ function showPage(page_number) {
 function showDetails(adNumber) {
     $(".detalhes").text("");
     $(".detalhes").append("<h1 id=\"tituloDetalhes\">Detalhes</h1>");
-    $("#tituloDetalhes").css({ "margin-left": "3%" });
+    $("#tituloDetalhes").css({"margin-left": "3%"});
     $(".detalhes").append("<div id=\"atributos\"></div>");
 
     $.ajax({
-        url: "http://localhost:8080/roomRentEvora/AdByAid", method: "POST", data: { aid: adNumber }, success: function (data) {
+        url: "http://localhost:8080/roomRentEvora/AdByAid", method: "POST", data: {aid: adNumber}, success: function (data) {
 
             $(".detalhes #atributos").append("<img src=\"/static/images/logo.svg\" alt=\"some text\" width=220 height=120> <br>");
             $(".detalhes #atributos").append("Tipo de alojamento: " + data.tipologia + "<br>");
@@ -92,8 +92,8 @@ function showDetails(adNumber) {
                 "border-radius": "15px",
                 "width": "45%",
                 "text-align": "center",
-                "display":"inline-block",
-                "float":"left"
+                "display": "inline-block",
+                "float": "left"
             });
 
             $(".detalhes").append("<h1>Contactar</h1>");

@@ -1,5 +1,5 @@
 <%@ page language="java" session="true"
-         contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+         contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
     <head>
@@ -26,37 +26,37 @@
                     <li><a href="<c:url value='/admin/roomRentEvora/administracao'/>"> Administração </a></li>
                     <li><a href="<c:url value='/user/roomRentEvora/mensagens'/>"> Mensagens </a></li>
                     <li><a href="<c:url value='/login'/>"> Sign in </a></li>
+                    <li><a href="<c:url value='/logout'/>">Logout</a></li>
                 </ul>
             </div>
-        </div>
 
-        <br><br>
+            <br><br>
 
-        <div id="bottom">
+            <div id="bottom">
 
-            <div id="contactos">
+                <div id="contactos">
 
-                <h2>Contactos</h2>
-                <p>geral@roomRentEvora.pt </p>
-                <p>roomRentEvora@gmail.com</p>
+                    <h2>Contactos</h2>
+                    <p>geral@roomRentEvora.pt </p>
+                    <p>roomRentEvora@gmail.com</p>
 
-            </div>
+                </div>
 
-            <div id="patrocinadores">
+                <div id="patrocinadores">
 
-                <h2>Patrocinadores</h2>
-                <img src="<c:url value="/static/images/UniversidadedeEvora.png"/>" alt="some text" width=220 height=80>
-                <img src="<c:url value="/static/images/CamaraMunicipal.jpeg"/>" alt="some text" width=140 height=80>
-                <img src="<c:url value="/static/images/EvoraPlaza.png"/>" alt="some text" width=90 height=80>
+                    <h2>Patrocinadores</h2>
+                    <img src="<c:url value="/static/images/UniversidadedeEvora.png"/>" alt="some text" width=220 height=80>
+                    <img src="<c:url value="/static/images/CamaraMunicipal.jpeg"/>" alt="some text" width=140 height=80>
+                    <img src="<c:url value="/static/images/EvoraPlaza.png"/>" alt="some text" width=90 height=80>
 
-            </div>
+                </div>
 
-            <div id="creditos">
+                <div id="creditos">
 
-                <h2>Créditos</h2>
-                <p>Daniel Barreiros l48452</p>
-                <p>Bernardo Vitorino l48463</p>
+                    <h2>Créditos</h2>
+                    <p>Daniel Barreiros l48452</p>
+                    <p>Bernardo Vitorino l48463</p>
 
-            </div>
-    </body>
-</html>
+                </div>
+                </body>
+                </html>

@@ -1,5 +1,5 @@
 $(document).ready(
-    function () {
+    function () {      
         $.ajax({
             url: "http://localhost:8080/roomRentEvora/lista", method: "POST", data: { tipo: 'oferta' }, success: function (data) {
                 ofertas=JSON.parse(data);

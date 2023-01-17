@@ -1,5 +1,5 @@
 <%@ page language="java" session="true"
-         contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+         contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
     <head>
@@ -28,6 +28,7 @@
                     <li><a href="<c:url value='/admin/roomRentEvora/administracao'/>"> Administração </a></li>
                     <li><a href="<c:url value='/user/roomRentEvora/mensagens'/>"> Mensagens </a></li>
                     <li><a href="<c:url value='/login'/>"> Sign in </a></li>
+                    <li><a href="<c:url value='/logout'/>">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -41,25 +42,16 @@
             <p> Tipo de Alojamento:
                 <select id="tipoAlojamento" name="tipo_alojamento" onchange="opcaoCasa()">
                     <option value="0" selected disabled hidden> </option>
-                    <option value="1">Quarto</option>
-                    <option value="2">Casa</option>
+                    <option value="Quarto">Quarto</option>
+                    <option value="Casa">Casa</option>
                 </select>
             </p>
 
-            <div id="opcaoDeCasa" class="tipo">
-                <p>Tipo:
-                    <select name="detalhes">
-                        <option value="" selected hidden> </option>
-                        <option>T0</option>
-                        <option>T1</option>
-                        <option>T2</option>
-                        <option>T3</option>
-                        <option>T4</option>
-                        <option>T5</option>
-                        <option>T6</option>
-                    </select>
-                </p>
-            </div>
+
+            <p>Detalhes:
+                <input type="text" name="detalhes">
+            </p>
+
 
             <p> Tipo de Arrendatário:
                 <select name="genero">
@@ -85,7 +77,7 @@
                 <input type="number" name="codigoPostal1" maxlength="4"> -
                 <input type="number" name="codigoPostal2" maxlength="3">
             </p>
-            
+
             <p> Data de Registo: <input type="date" name="data"> </p>
 
             <p>Contacto do Proprietario: +351

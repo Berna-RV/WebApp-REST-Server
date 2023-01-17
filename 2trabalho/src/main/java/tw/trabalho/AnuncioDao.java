@@ -17,7 +17,7 @@ public class AnuncioDao {
     private JdbcTemplate jdbcTemplate;
     
     public void saveAnuncio(final Anuncio ad){
-        String sql = "INSERT INTO user VALUES ( DEFAULT,'"
+        String sql = "INSERT INTO anuncio_table VALUES ( DEFAULT,'"
                 + ad.getTipoAnuncio()+ "','"
                 + ad.getTipologia()+ "','"
                 + ad.getDetalhes() + "','"
