@@ -85,6 +85,8 @@
                 <input type="number" name="codigoPostal1" maxlength="4"> -
                 <input type="number" name="codigoPostal2" maxlength="3">
             </p>
+            
+            <p> Data de Registo: <input type="date" name="data"> </p>
 
             <p>Contacto do Proprietario: +351
                 <input type="number" name="contacto" maxlength="9">

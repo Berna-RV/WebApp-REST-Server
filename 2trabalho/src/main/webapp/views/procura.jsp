@@ -81,7 +81,7 @@
                 <input type="text" name="zona" maxlength="64">
             </p>
 
-            <p> Data de Registo: <input type="date"> </p>
+            <p> Data de Registo: <input type="date" name="data"> </p>
 
             <p>Preço por ocupação (Valor/mês):
                 <input type="number" name="preco"> â‚¬

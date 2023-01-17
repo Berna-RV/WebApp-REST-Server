@@ -14,7 +14,7 @@ $(document).ready(function(){
 
         var formValues = $(this).serialize();
 
-        $.post("http://alunos.di.uevora.pt/tweb/t1/registaoferta", formValues, function (data) {
+        $.post("http://localhost:8080/user/roomRentEvora/registaoferta", formValues, function (data) {
             if (data.resultado == "ok") {
                 alert("O registo foi feito com sucesso.")
             } else {

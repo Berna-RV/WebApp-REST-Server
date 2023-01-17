@@ -6,7 +6,7 @@ package tw.trabalho;
  */
 public class Anuncio {
 
-    private Long anuncio_id;
+    //private Long anuncio_id;
     private String tipoAnuncio;
     private String tipologia;
     private String detalhes;
@@ -19,8 +19,8 @@ public class Anuncio {
     private String estado;
     private String anuncio_user_name;
 
-    public Anuncio(Long anuncio_id, String tipoAnuncio, String tipologia, String detalhes, String localizacao, String genero, String preco, String anunciante, String contacto, String data, String estado, String anuncio_user_name) {
-        this.anuncio_id=anuncio_id;
+    public Anuncio(String tipoAnuncio, String tipologia, String detalhes, String localizacao, String genero, String preco, String anunciante, String contacto, String data, String estado, String anuncio_user_name) {
+        //this.anuncio_id=anuncio_id;
         this.tipoAnuncio = tipoAnuncio;
         this.tipologia=tipologia;
         this.detalhes=detalhes;
@@ -35,13 +35,13 @@ public class Anuncio {
         
     }
 
-    public void setAid(Long anuncio_id) {
-        this.anuncio_id = anuncio_id;
-    }
+    //public void setAid(Long anuncio_id) {
+        //this.anuncio_id = anuncio_id;
+    //}
 
-    public Long getAid() {
-        return anuncio_id;
-    }
+    //public Long getAid() {
+        //return anuncio_id;
+    //}
 
     public void setTipoAnuncio(String tipo_anuncio) {
         this.tipoAnuncio = tipo_anuncio;
