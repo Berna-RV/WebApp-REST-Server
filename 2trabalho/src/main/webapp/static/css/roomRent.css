@@ -369,6 +369,10 @@ body {
     margin-left: 1%;
 }
 
+#form1{
+    align-content: left;
+    margin-left: 2%;
+}
 @media screen and (max-width:980px){
 
     #top h1 {

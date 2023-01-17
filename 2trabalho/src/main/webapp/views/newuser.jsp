@@ -3,7 +3,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>User Registration: new user</title>
+        <title>Registo bem sucedido</title>
+        <link rel="stylesheet" href="<c:url value="/static/css/roomRent.css"/>"/>
+        <link rel="icon" type="image/x-icon" href="<c:url value="/static/images/logo.svg"/>"/>
     </head>
     <body>
         <div align="center">

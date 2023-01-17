@@ -42,7 +42,19 @@ CREATE TABLE anuncio_table (
 );
 
 insert into anuncio_table values (DEFAULT, 'procura', 'quarto', 'bonito', 'evora','m', '200', 'bernardo', '999999999', '12-02-2022', 'ativo', 'admin');
-insert into anuncio_table values (DEFAULT, 'oferta', 'quarto', 'bonito', 'evora','m', '200', 'bernardo', '999999999', '12-02-2022', 'ativo', 'admin');
+insert into anuncio_table values (DEFAULT, 'oferta', 'quarto', 'bonito', 'evora','m', '200', 'daniel', '999999999', '12-02-2022', 'ativo', 'user2');
+
+insert into anuncio_table values (DEFAULT, 'procura', 'quarto', 'bonito', 'evora','m', '200', 'tiago', '999999999', '12-02-2022', 'ativo', 'user2');
+insert into anuncio_table values (DEFAULT, 'oferta', 'quarto', 'bonito', 'evora','m', '200', 'amilcar', '999999999', '12-02-2022', 'ativo', 'admin');
+
+insert into anuncio_table values (DEFAULT, 'procura', 'quarto', 'bonito', 'evora','m', '200', 'joao', '999999999', '12-02-2022', 'ativo', 'admin');
+insert into anuncio_table values (DEFAULT, 'oferta', 'quarto', 'bonito', 'evora','m', '200', 'miguel', '999999999', '12-02-2022', 'ativo', 'admin');
+
+insert into anuncio_table values (DEFAULT, 'procura', 'quarto', 'bonito', 'evora','m', '200', 'asdrubal', '999999999', '12-02-2022', 'ativo', 'user2');
+insert into anuncio_table values (DEFAULT, 'oferta', 'quarto', 'bonito', 'evora','m', '200', 'ricardo', '123445678', '12-02-2022', 'ativo', 'admin');
+
+insert into anuncio_table values (DEFAULT, 'procura', 'quarto', 'bonito', 'evora','m', '200', 'arnaldo', '999999999', '12-02-2022', 'ativo', 'admin');
+insert into anuncio_table values (DEFAULT, 'oferta', 'quarto', 'bonito', 'evora','m', '200', 'inacio', '999999999', '12-02-2022', 'ativo', 'admin');
 
 CREATE TABLE msg_table (
     msg_id SERIAL PRIMARY KEY,

@@ -114,7 +114,7 @@ function submit() {
             if (data.resultado == "ok") {
                 alert("A mensagem foi enviada");
             } else {
-                alert("A mensagem não foi enviada");
+                alert("A mensagem não foi enviada, provavelmente não está autenticado.");
             }
         });
     });
