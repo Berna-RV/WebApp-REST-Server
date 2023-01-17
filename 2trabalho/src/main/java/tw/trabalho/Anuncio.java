@@ -34,6 +34,21 @@ public class Anuncio {
         this.anuncio_user_name=anuncio_user_name;
         
     }
+    
+     public Anuncio( String tipoAnuncio, String tipologia, String detalhes, String localizacao, String genero, String preco, String anunciante, String contacto, String data, String estado, String anuncio_user_name) {
+        this.tipoAnuncio = tipoAnuncio;
+        this.tipologia=tipologia;
+        this.detalhes=detalhes;
+        this.localizacao=localizacao;
+        this.genero=genero;
+        this.preco=preco;
+        this.anunciante=anunciante;
+        this.contacto=contacto;
+        this.data=data;
+        this.estado=estado;
+        this.anuncio_user_name=anuncio_user_name;
+        
+    }
 
     public void setAid(Long anuncio_id) {
         this.anuncio_id = anuncio_id;

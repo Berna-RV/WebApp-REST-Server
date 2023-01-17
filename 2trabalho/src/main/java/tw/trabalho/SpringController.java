@@ -132,12 +132,45 @@ public class SpringController {
     }
     
     
+    @PostMapping("/user/roomRentEvora/registaprocura")
+    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
+    public JSONObject receiveProcura(HttpServletRequest request, @RequestParam(name="tipo_alojamento") String tipo_alojamento, @RequestParam(name="detalhes") String detalhes, @RequestParam(name="genero") String genero, @RequestParam(name="anunciante") String anunciante, @RequestParam(name="zona") String zona, @RequestParam(name="data") String data, @RequestParam(name="preco") String preco, @RequestParam(name="contacto") String contacto) {
+        JSONObject json = new JSONObject();
+        String username = request.getRemoteUser();
+        Anuncio ad = new Anuncio("procura", tipo_alojamento, detalhes, zona, genero, preco, anunciante, contacto, data, "inativo", username);
+        
+        anuncioDao.saveAnuncio(ad);
+        
+        json.put("resultado", "ok");
+        
+        return json;
+    }
+    
+    @PostMapping("/user/roomRentEvora/registaoferta")
+    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
+    public JSONObject receiveOferta(HttpServletRequest request, @RequestParam(name="tipo_alojamento") String tipo_alojamento, @RequestParam(name="detalhes") String detalhes, @RequestParam(name="genero") String genero, @RequestParam(name="preco") String preco, @RequestParam(name="nomeAlojamento") String nomeAlejamento, @RequestParam(name="zona") String zona, @RequestParam(name="data") String data, @RequestParam(name="contacto") String contacto, @RequestParam(name="anunciante") String anunciante, @RequestParam(name="mail") String mail) {
+        JSONObject json = new JSONObject();
+        String username = request.getRemoteUser();
+        
+        Anuncio ad = new Anuncio("oferta", tipo_alojamento, detalhes, zona, genero, preco, anunciante, contacto, data, "inativo", username);
+        
+        anuncioDao.saveAnuncio(ad);
+        
+        json.put("resultado", "ok");
+        
+        return json;
+
+    }
+
 
     // admin methods
     @GetMapping("/admin/roomRentEvora/administracao")
     public String adminAdministracao(Model model) {
         return "administracao";
     }
+
     
     @PostMapping("/admin/roomRentEvora/gereAnuncios")
     @ResponseBody
@@ -169,7 +202,4 @@ public class SpringController {
         
         
     }
-    
-    
-
 }
