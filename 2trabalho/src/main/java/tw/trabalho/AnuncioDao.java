@@ -36,4 +36,8 @@ public class AnuncioDao {
     public List<Anuncio> getAnunciosListByTipoAnuncio(String tipo) {
         return jdbcTemplate.query("select * FROM anuncio_table where tipoAnuncio='" + tipo + "'", new AnuncioRowMapper());
     }
+    
+    public Anuncio getAnuncioByAid(String aid){
+        return jdbcTemplate.queryForObject("select * FROM anuncio_table where anuncio_id=" + aid, new AnuncioRowMapper());
+    }
 }

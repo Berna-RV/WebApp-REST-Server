@@ -15,9 +15,11 @@ public class MsgDao {
     private JdbcTemplate jdbcTemplate;
     
     public void saveMsg(final Msg msg){
-        String sql = "INSERT INTO user VALUES ( DEFAULT,'"
-                + msg.getMsg()+ "','"
-                + msg.getAnuncioMsg_id()+ "')";
+        String sql = "INSERT INTO msg_table VALUES ( DEFAULT,'"
+                
+                + msg.getAnuncioMsg_id()+ "','"
+                + msg.getRemetente()+ "','"
+                + msg.getMsg()+ "')";
         jdbcTemplate.execute(sql);
         System.out.println("MsgDao - saved\n" + sql + "\n");
     }

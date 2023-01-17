@@ -4,8 +4,9 @@ var ofertas_size = null;
 $(document).ready(
     function () {
         $.ajax({
-            url: "http://alunos.di.uevora.pt/tweb/t1/roomsearch", method: "POST", data: { tipo: 'oferta' }, success: function (data) {
-                ofertas = Object.keys(data.resultados).map(v => ({ [v]: { ...data.resultados[v] } }));
+            url: "http://localhost:8080/roomRentEvora/lista", method: "POST", data: { tipo: 'oferta' }, success: function (data) {
+                
+                ofertas=JSON.parse(data);
                 ofertas_size = ofertas.length;
 
                 var page_number = Math.ceil(ofertas_size / 4);
@@ -21,6 +22,7 @@ $(document).ready(
     }
 );
 
+
 function showPage(page_number) {
 
     $(".principal").html("");
@@ -28,19 +30,17 @@ function showPage(page_number) {
 
     for (let i = 0, j = ofertas_size - (page_number - 1) * 4 - 1; j >= 0 && i < 4; j--, i++) {
         $(".principal #" + i + "").text("");
-        let index = j;
-        index = index.toString();
-        var myJSON = ofertas[j][index];
+        var myJSON = ofertas[j];
 
         $(".principal").append("<a onclick=\"showDetails(" + myJSON.aid + ")\"><div id=\"" + i + "\" ></div></a>");
 
 
         $(".principal #" + i + "").append("<img src=\"/static/images/logo.svg\" alt=\"some text\" width=220 height=120> <br>");
-        $(".principal #" + i + "").append("Tipo de alojamento: " + myJSON.tipo_alojamento + "<br>");
+        $(".principal #" + i + "").append("Tipo de alojamento: " + myJSON.tipologia + "<br>");
         $(".principal #" + i + "").append("Detalhes: " + myJSON.detalhes + "<br>");
-        $(".principal #" + i + "").append("Zona: " + myJSON.zona + "<br>");
+        $(".principal #" + i + "").append("Zona: " + myJSON.localizacao + "<br>");
         $(".principal #" + i + "").append("Genero: " + myJSON.genero + "<br>");
-        $(".principal #" + i + "").append("Preço: " + myJSON.preco + "€" + "<br>");
+        $(".principal #" + i + "").append("Preco: " + myJSON.preco + "€" + "<br>");
         $(".principal #" + i + "").append("Anunciante: " + myJSON.anunciante + "<br>");
         $(".principal #" + i + "").append("Contacto: " + myJSON.contacto + "<br>");
         $(".principal #" + i + "").append("Data: " + myJSON.data + "<br>");
@@ -69,18 +69,18 @@ function showDetails(adNumber) {
     $(".detalhes").append("<div id=\"atributos\"></div>");
 
     $.ajax({
-        url: "http://alunos.di.uevora.pt/tweb/t1/anuncio", method: "POST", data: { aid: adNumber }, success: function (data) {
+        url: "http://localhost:8080/roomRentEvora/AdByAid", method: "POST", data: { aid: adNumber }, success: function (data) {
 
             $(".detalhes #atributos").append("<img src=\"/static/images/logo.svg\" alt=\"some text\" width=220 height=120> <br>");
-            $(".detalhes #atributos").append("Tipo de alojamento: " + data.anuncio.tipo_alojamento + "<br>");
-            $(".detalhes #atributos").append("Detalhes: " + data.anuncio.detalhes + "<br>");
-            $(".detalhes #atributos").append("Zona: " + data.anuncio.zona + "<br>");
-            $(".detalhes #atributos").append("Genero: " + data.anuncio.genero + "<br>");
-            $(".detalhes #atributos").append("Preço: " + data.anuncio.preco + "€" + "<br>");
-            $(".detalhes #atributos").append("Anunciante: " + data.anuncio.anunciante + "<br>");
+            $(".detalhes #atributos").append("Tipo de alojamento: " + data.tipologia + "<br>");
+            $(".detalhes #atributos").append("Detalhes: " + data.detalhes + "<br>");
+            $(".detalhes #atributos").append("Zona: " + data.localizacao + "<br>");
+            $(".detalhes #atributos").append("Genero: " + data.genero + "<br>");
+            $(".detalhes #atributos").append("Preco: " + data.preco + "€" + "<br>");
+            $(".detalhes #atributos").append("Anunciante: " + data.anunciante + "<br>");
             $(".detalhes #atributos").append("Contacto: " + data.contacto + "<br>");
-            $(".detalhes #atributos").append("Data: " + data.anuncio.data + "<br>");
-            $(".detalhes #atributos").append("Estado: " + data.anuncio.estado + "<br><br>");
+            $(".detalhes #atributos").append("Data: " + data.data + "<br>");
+            $(".detalhes #atributos").append("Estado: " + data.estado + "<br><br>");
 
 
             $(".detalhes #atributos").css({
@@ -97,7 +97,7 @@ function showDetails(adNumber) {
             });
 
             $(".detalhes").append("<h1>Contactar</h1>");
-            $(".detalhes").append("<form> <p>Aid:" + adNumber + "<input type=\"hidden\" name=\"aid\" value=\"" + adNumber + "\"></p> <p>Remetente:  <input type=\"text\" name=\"remetente\"></p> <p>Mensagem:  <input type=\"text\" name=\"msg\"></p> <input type=\"submit\" value=\"Submeter\"></form>");
+            $(".detalhes").append("<form> <p>Aid:" + adNumber + "<input type=\"hidden\" name=\"aid\" value=\"" + adNumber + "\"></p></p> <p>Mensagem:  <input type=\"text\" name=\"msg\"></p> <input type=\"submit\" value=\"Submeter\"></form>");
 
             submit();
         }
@@ -112,7 +112,7 @@ function submit() {
 
         var formValues = $(this).serialize();
 
-        $.post("http://alunos.di.uevora.pt/tweb/t1/contactar", formValues, function (data) {
+        $.post("http://localhost:8080/user/roomRentEvora/contactar", formValues, function (data) {
             if (data.resultado == "ok") {
                 alert("A mensagem foi enviada");
             } else {

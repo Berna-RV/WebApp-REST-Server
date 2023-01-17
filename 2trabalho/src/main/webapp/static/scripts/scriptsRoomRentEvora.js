@@ -1,18 +1,18 @@
 $(document).ready(
     function () {
         $.ajax({
-            url: "http://alunos.di.uevora.pt/tweb/t1/roomsearch", method: "POST", data: { tipo: 'oferta' }, success: function (data) {
-                var ofertas = Object.keys(data.resultados).map(v => ({ [v]: { ...data.resultados[v] } }));
-                var ofertas_size = ofertas.length;
+            url: "http://localhost:8080/roomRentEvora/lista", method: "POST", data: { tipo: 'oferta' }, success: function (data) {
+                ofertas=JSON.parse(data);
+                ofertas_size = ofertas.length;
 
                 var index = ofertas_size - 3;
                 index = index.toString();
 
-                var myJSON = ofertas[ofertas_size - 3][index];
+                var myJSON = ofertas[ofertas_size - 3];
 
-                $("#primeira_oferta .tipo_alojamento").append(myJSON.tipo_alojamento);
+                $("#primeira_oferta .tipo_alojamento").append(myJSON.tipologia);
                 $("#primeira_oferta .detalhes").append(myJSON.detalhes);
-                $("#primeira_oferta .zona").append(myJSON.zona);
+                $("#primeira_oferta .zona").append(myJSON.localizacao);
                 $("#primeira_oferta .genero").append(myJSON.genero);
                 $("#primeira_oferta .preco").append(myJSON.preco + "€");
                 $("#primeira_oferta .anunciante").append(myJSON.anunciante);
@@ -23,11 +23,11 @@ $(document).ready(
 
                 index = ofertas_size - 2;
                 index = index.toString();
-                myJSON = ofertas[ofertas_size - 2][index]
+                myJSON = ofertas[ofertas_size - 2];
 
-                $("#segunda_oferta .tipo_alojamento").append(myJSON.tipo_alojamento);
+                $("#segunda_oferta .tipo_alojamento").append(myJSON.tipologia);
                 $("#segunda_oferta .detalhes").append(myJSON.detalhes);
-                $("#segunda_oferta .zona").append(myJSON.zona);
+                $("#segunda_oferta .zona").append(myJSON.localizacao);
                 $("#segunda_oferta .genero").append(myJSON.genero);
                 $("#segunda_oferta .preco").append(myJSON.preco + "€");
                 $("#segunda_oferta .anunciante").append(myJSON.anunciante);
@@ -38,11 +38,11 @@ $(document).ready(
 
                 index = ofertas_size - 1;
                 index = index.toString();
-                myJSON = ofertas[ofertas_size - 1][index]
+                myJSON = ofertas[ofertas_size - 1];
 
-                $("#terceira_oferta .tipo_alojamento").append(myJSON.tipo_alojamento);
+                $("#terceira_oferta .tipo_alojamento").append(myJSON.tipologia);
                 $("#terceira_oferta .detalhes").append(myJSON.detalhes);
-                $("#terceira_oferta .zona").append(myJSON.zona);
+                $("#terceira_oferta .zona").append(myJSON.localizacao);
                 $("#terceira_oferta .genero").append(myJSON.genero);
                 $("#terceira_oferta .preco").append(myJSON.preco + "€");
                 $("#terceira_oferta .anunciante").append(myJSON.anunciante);
@@ -58,19 +58,16 @@ $(document).ready(
 $(document).ready(
     function () {
         $.ajax({
-            url: "http://alunos.di.uevora.pt/tweb/t1/roomsearch", method: "POST", data: { tipo: 'procura' }, success: function (data) {
+            url: "http://localhost:8080/roomRentEvora/lista", method: "POST", data: { tipo: 'procura' }, success: function (data) {
 
-                var procuras = Object.keys(data.resultados).map(v => ({ [v]: { ...data.resultados[v] } }));
-                var procuras_size = procuras.length;
+                procuras=JSON.parse(data);
+                procuras_size = procuras.length;
 
-                var index = procuras_size - 3;
-                index = index.toString();
+                var myJSON = procuras[procuras_size - 3];
 
-                var myJSON = procuras[procuras_size - 3][index];
-
-                $("#primeira_procura .tipo_alojamento").append(myJSON.tipo_alojamento);
+                $("#primeira_procura .tipo_alojamento").append(myJSON.tipologia);
                 $("#primeira_procura .detalhes").append(myJSON.detalhes);
-                $("#primeira_procura .zona").append(myJSON.zona);
+                $("#primeira_procura .zona").append(myJSON.localizacao);
                 $("#primeira_procura .genero").append(myJSON.genero);
                 $("#primeira_procura .preco").append(myJSON.preco + "€");
                 $("#primeira_procura .anunciante").append(myJSON.anunciante);
@@ -79,13 +76,11 @@ $(document).ready(
                 $("#primeira_procura .estado").append(myJSON.estado);
                 $("#primeira_procura .aid").append(myJSON.aid);
 
-                index = procuras_size - 2;
-                index = index.toString();
-                myJSON = procuras[procuras_size - 2][index]
+                myJSON = procuras[procuras_size - 2];
 
-                $("#segunda_procura .tipo_alojamento").append(myJSON.tipo_alojamento);
+                $("#segunda_procura .tipo_alojamento").append(myJSON.tipologia);
                 $("#segunda_procura .detalhes").append(myJSON.detalhes);
-                $("#segunda_procura .zona").append(myJSON.zona);
+                $("#segunda_procura .zona").append(myJSON.localizacao);
                 $("#segunda_procura .genero").append(myJSON.genero);
                 $("#segunda_procura .preco").append(myJSON.preco + "€");
                 $("#segunda_procura .anunciante").append(myJSON.anunciante);
@@ -94,13 +89,11 @@ $(document).ready(
                 $("#segunda_procura .estado").append(myJSON.estado);
                 $("#segunda_procura .aid").append(myJSON.aid);
 
-                index = procuras_size - 1;
-                index = index.toString();
-                myJSON = procuras[procuras_size - 1][index]
+                myJSON = procuras[procuras_size - 1];
 
-                $("#terceira_procura .tipo_alojamento").append(myJSON.tipo_alojamento);
+                $("#terceira_procura .tipo_alojamento").append(myJSON.tipologia);
                 $("#terceira_procura .detalhes").append(myJSON.detalhes);
-                $("#terceira_procura .zona").append(myJSON.zona);
+                $("#terceira_procura .zona").append(myJSON.localizacao);
                 $("#terceira_procura .genero").append(myJSON.genero);
                 $("#terceira_procura .preco").append(myJSON.preco + "€");
                 $("#terceira_procura .anunciante").append(myJSON.anunciante);

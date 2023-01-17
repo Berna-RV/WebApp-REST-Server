@@ -1,6 +1,7 @@
 package tw.trabalho;
 
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -27,6 +28,9 @@ public class SpringController {
 
     @Autowired
     private AnuncioDao anuncioDao;
+
+    @Autowired
+    private MsgDao msgDao;
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -67,11 +71,19 @@ public class SpringController {
     @PostMapping("/roomRentEvora/lista")
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public String getAnunciosByTypo(@RequestParam(name="tipo") String tipo) {
-        JSONObject json = new JSONObject();
+    public String getAnunciosByTypo(@RequestParam(name = "tipo") String tipo) {
         List<Anuncio> listaAnuncios = anuncioDao.getAnunciosListByTipoAnuncio(tipo);
 
         return listaAnuncios.toString();
+    }
+
+    @PostMapping("/roomRentEvora/AdByAid")
+    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
+    public Anuncio getAnuncioByAid(@RequestParam(name = "aid") String aid) {
+
+        return anuncioDao.getAnuncioByAid(aid);
+
     }
 
 // authenticated users methods
@@ -88,6 +100,21 @@ public class SpringController {
     @GetMapping("/user/roomRentEvora/mensagens")
     public String userMensagensList(Model model) {
         return "mensagens";
+    }
+
+    @PostMapping("/user/roomRentEvora/contactar")
+    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
+    public JSONObject receiveMessage(HttpServletRequest request, @RequestParam(name = "aid") String aid, @RequestParam(name = "msg") String mensagem) {
+        JSONObject json = new JSONObject();
+        String username = request.getRemoteUser();
+        Msg newMsg = new Msg(mensagem, aid, username);
+        
+        msgDao.saveMsg(newMsg);
+        
+        json.put("resultado", "ok");
+
+        return json;
     }
 
     // admin methods

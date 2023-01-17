@@ -133,18 +133,18 @@ public class Anuncio {
 
     @Override
     public String toString() {
-        return "Anuncio{ Anuncio ID= " + anuncio_id
-                + ", tipo de anuncio= " + tipoAnuncio
-                + ", tipologia= " + tipologia
-                + ", detalhes= " + detalhes
-                + ", localização= " + localizacao
-                + ", género= " + genero
-                + ", preço= " + preco
-                + ", anunciante= " + anunciante
-                + ", contacto= " + contacto
-                + ", data= " + data
-                + ", estado= " + estado
-                + ", Anuncio-Username " + anuncio_user_name
-                + '}';
+        return "{ \"aid\": \"" + anuncio_id
+                + "\", \"tipoDeAnuncio\": \"" + tipoAnuncio
+                + "\", \"tipologia\": \"" + tipologia
+                + "\", \"detalhes\": \"" + detalhes
+                + "\", \"localizacao\": \"" + localizacao
+                + "\", \"genero\": \"" + genero
+                + "\", \"preco\": \"" + preco
+                + "\", \"anunciante\": \"" + anunciante
+                + "\", \"contacto\": \"" + contacto
+                + "\", \"data\": \"" + data
+                + "\", \"estado\": \"" + estado
+                + "\", \"anuncioUsername\": \"" + anuncio_user_name
+                + "\"}";
     }
 }

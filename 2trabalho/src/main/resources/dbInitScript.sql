@@ -47,6 +47,7 @@ insert into anuncio_table values (DEFAULT, 'oferta', 'quarto', 'bonito', 'evora'
 CREATE TABLE msg_table (
     msg_id SERIAL PRIMARY KEY,
     anuncioMsg_id integer NOT NULL,
+    remetente varchar(30) NOT NULL,
     msg varchar(300)
 );
 
