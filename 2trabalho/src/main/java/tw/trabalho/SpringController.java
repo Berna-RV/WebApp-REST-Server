@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import net.minidev.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
@@ -116,11 +115,61 @@ public class SpringController {
 
         return json;
     }
+    
+    @PostMapping("/user/roomRentEvora/lerMensagens")
+    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
+    public JSONObject readMensagens(HttpServletRequest request){
+        
+        JSONObject response =  new JSONObject();
+        String username = request.getRemoteUser();
+        
+        List<Msg> listaMensagens = msgDao.readMsgToUserByUsername(username);
+        
+        response.put("msgs", listaMensagens.toString());
+        response.put("resultado", "ok");
+        return response;
+    }
+    
+    
 
     // admin methods
     @GetMapping("/admin/roomRentEvora/administracao")
     public String adminAdministracao(Model model) {
         return "administracao";
     }
+    
+    @PostMapping("/admin/roomRentEvora/gereAnuncios")
+    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
+    public JSONObject sendAdminAds(){
+        JSONObject response = new JSONObject();
+        List<Anuncio> ativos= anuncioDao.getAnuncioByEstado("ativo");
+        
+        response.put("ativo", ativos.toString());
+        
+        List<Anuncio> inativos= anuncioDao.getAnuncioByEstado("inativo");
+        
+        response.put("inativo", inativos.toString());
+        
+        return response;
+    }
+    
+    @PostMapping("/admin/roomRentEvora/controloAnuncio")
+    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
+    public JSONObject modifyState(@RequestParam(name="aid") String aid, @RequestParam(name="estado") String estado ){
+        JSONObject response = new JSONObject();
+        
+        anuncioDao.modifyAdState(aid, estado);
+        
+        response.put("resultado", "ok");
+        
+        return response;
+        
+        
+    }
+    
+    
 
 }

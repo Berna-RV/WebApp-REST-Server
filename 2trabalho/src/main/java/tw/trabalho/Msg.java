@@ -10,10 +10,10 @@ public class Msg {
     private long anuncioMsg_id;
     private String remetente;
 
-    public Msg(String msg, String anuncioMsg_id,String remetente) {
+    public Msg(String msg, String anuncioMsg_id, String remetente) {
         this.msg = msg;
-        this.anuncioMsg_id= Long.valueOf(anuncioMsg_id);
-        this.remetente=remetente;
+        this.anuncioMsg_id = Long.valueOf(anuncioMsg_id);
+        this.remetente = remetente;
     }
 
     public String getMsg() {
@@ -31,12 +31,19 @@ public class Msg {
     public void setAnuncioMsg_id(long anuncioMsg_id) {
         this.anuncioMsg_id = anuncioMsg_id;
     }
-    
-    public String getRemetente(){
+
+    public String getRemetente() {
         return remetente;
     }
-    
-    public void setRemetente(String remetente){
-        this.remetente=remetente;
+
+    public void setRemetente(String remetente) {
+        this.remetente = remetente;
+    }
+
+    @Override
+    public String toString() {
+        return "{ \"remetente\": \"" + remetente
+                + "\", \"msg\": \"" + msg
+                + "\"}";
     }
 }

@@ -1,12 +1,12 @@
 package tw.trabalho;
 import org.springframework.jdbc.core.RowMapper;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author berna-dev
  */
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class UserRowMapper implements RowMapper<User> {
 

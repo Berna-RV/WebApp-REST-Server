@@ -2,9 +2,9 @@ var ativos = null;
 var inativos = null;
 
 $(document).ready(function () {
-    $.post("http://alunos.di.uevora.pt/tweb/t1/gereanuncios", function (data) {
-        ativos = data["ativo"];
-        inativos = data["inativo"];
+    $.post("http://localhost:8080/admin/roomRentEvora/gereAnuncios", function (data) {
+        ativos = JSON.parse(data["ativo"]);
+        inativos = JSON.parse(data["inativo"]);
 
         $(".pagination").append(
             '<a onclick="showAtivos()">Ativos</a><a onclick="showInativos()">Inativos</a>'
@@ -26,11 +26,11 @@ function showPageAtivos(page_number) {
     ) {
         $(".ads").append('<div id="' + i + '"></div>');
 
-        let aid = ativos[j];
+        let ad = ativos[j];
 
-        $(".ads #" + i + "").append("<br>" + "Aid: " + aid);
+        $(".ads #" + i + "").append("<br>" + "Aid: " + ad.aid);
         $(".ads #" + i + "").append(
-            '<p> <\p> <a onclick="modifyAdStateFromAtivo(' + aid + ')">- Alterar -</a>'
+            '<p> <\p> <a onclick="modifyAdStateFromAtivo(' + ad.aid + ')">- Alterar -</a>'
         );
         $(".ads #" + i + "").append("<br><br>");
 
@@ -117,11 +117,11 @@ function showPageInativos(page_number) {
     ) {
         $(".ads").append('<div id="' + i + '"></div>');
 
-        let aid = inativos[j];
+        let ad = inativos[j];
 
-        $(".ads #" + i + "").append("<br>" + "Aid: " + aid);
+        $(".ads #" + i + "").append("<br>" + "Aid: " + ad.aid);
         $(".ads #" + i + "").append(
-            '<p> <\p> <a onclick="modifyAdStateFromInativo(' + aid + ')">- Alterar -</a>'
+            '<p> <\p> <a onclick="modifyAdStateFromInativo(' + ad.aid + ')">- Alterar -</a>'
         );
         $(".ads #" + i + "").append("<br><br>");
 
@@ -199,15 +199,14 @@ function showInativos() {
 }
 
 function modifyAdStateFromAtivo(aid) {
-    var descricao = prompt("Descrição:");
-    var data = { aid: aid, estado: "inativo", descricao: descricao };
+    var data = { aid: aid, estado: "inativo"};
 
     $.post({
-        url: "http://alunos.di.uevora.pt/tweb/t1/controloanuncio",
+        url: "http://localhost:8080/admin/roomRentEvora/controloAnuncio",
         data,
         success: function (data) {
             if (data.resultado == "ok") {
-                alert("Alteração feita com sucesso");
+                alert("Alteracao feita com sucesso");
                 location.reload();
             } else {
                 alert(
@@ -219,15 +218,14 @@ function modifyAdStateFromAtivo(aid) {
 }
 
 function modifyAdStateFromInativo(aid) {
-    var descricao = prompt("Descrição:");
-    var data = { aid: aid, estado: "ativo", descricao: descricao };
+    var data = { aid: aid, estado: "ativo"};
 
     $.post({
-        url: "http://alunos.di.uevora.pt/tweb/t1/controloanuncio",
+        url: "http://localhost:8080/admin/roomRentEvora/controloAnuncio",
         data,
         success: function (data) {
             if (data.resultado == "ok") {
-                alert("Alteração feita com sucesso");
+                alert("Alteracao feita com sucesso");
                 location.reload();
             } else {
                 alert(

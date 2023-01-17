@@ -40,4 +40,12 @@ public class AnuncioDao {
     public Anuncio getAnuncioByAid(String aid){
         return jdbcTemplate.queryForObject("select * FROM anuncio_table where anuncio_id=" + aid, new AnuncioRowMapper());
     }
+    
+    public List<Anuncio> getAnuncioByEstado(String estado){
+        return jdbcTemplate.query("select * FROM anuncio_table where estado='" + estado + "'", new AnuncioRowMapper());
+    }
+    
+    public void modifyAdState(String aid, String estado){
+        jdbcTemplate.update("update anuncio_table set estado='" + estado +"' where anuncio_id=" + aid);
+    }
 }

@@ -52,6 +52,7 @@ CREATE TABLE msg_table (
 );
 
 
-
+insert into msg_table values (DEFAULT, 1, 'user2', 'ola tudo bem, estou interessado');
+insert into msg_table values (DEFAULT, 2, 'user2', 'nao gostei');
 
 

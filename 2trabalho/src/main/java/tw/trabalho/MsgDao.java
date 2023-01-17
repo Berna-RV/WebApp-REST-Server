@@ -3,6 +3,7 @@ package tw.trabalho;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import java.util.List;
 
 /**
  *
@@ -25,4 +26,7 @@ public class MsgDao {
     }
     
     
+    public List<Msg> readMsgToUserByUsername(String username){
+        return jdbcTemplate.query("select * from msg_table, anuncio_table where msg_table.anuncioMsg_id=anuncio_table.anuncio_id and anuncio_table.anuncio_user_name='" + username + "'", new MsgRowMapper());
+    }
 }

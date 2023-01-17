@@ -34,13 +34,6 @@
 
         <div id="principal">
 
-            <h2 id="mensagemPrincipal">Introduza o aid do anuncio para o qual pretende ver as mensagens:</h2>
-            <form id="searchMessage">
-                <input id="search_bar" type="text" name="aid">
-                <input id="search_button" type="submit" value="Submit">
-            </form>
-
-
             <div id="mensagens">
 
             </div>
